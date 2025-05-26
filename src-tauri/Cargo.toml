@@ -1,0 +1,27 @@
+[package]
+name = "system-agent"
+version = "0.1.0"
+description = "A Tauri App"
+authors = ["you"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1", features = [] }
+
+[dependencies] 
+
+tauri = { version = "1", features = ["shell-open"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1"
+mac_address = "1.1.8"
+ipnetwork = { version = "0.20.0", default-features = false }
+local-ip-address = "0.5.4"
+axum = "0.7.1"
+tokio = { version = "1.32.0", features = ["full"] }
+tower-http = { version = "0.5.0", features = ["cors"] }
+
+[features]
+# This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]

@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Device MAC Address</h1>
+  <h1>HELLO APPLICATION</h1>
+  <div *ngIf="loading" class="status loading">Loading...</div>
+
+  <div *ngIf="!loading" class="status success">
+    <ul *ngIf="devices.length > 0">
+      <li *ngFor="let device of devices">
+        {{ device.name }} ({{ device.mac }})
+      </li>
+    </ul>
+     <button (click)="getMacAddress()">Refresh</button>
+  </div>
+</div>
