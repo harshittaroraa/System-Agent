@@ -1,37 +1,102 @@
-.container {
-  max-width: 400px;
-  margin: 80px auto;
-  text-align: center;
-  font-family: Arial, sans-serif;
+/* Prevent resizing */
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #f0f4f8;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.status {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 8px;
-}
-
-.loading {
-  background-color: #f0f0f0;
+.app-container {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
   color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-
-.success {
-  background-color: #e6ffe6;
-  color: #2a662a;
+.app-header {
+  background-color: #004080;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
-.error {
-  background-color: #ffe6e6;
-  color: #cc0000;
+.content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-
-button {
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: #0077cc;
+.status-section {
+  text-align: center;
+}
+.status.loading {
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.status.success {
+  margin-top: 1rem;
+}
+.device-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.device-item {
+  background-color: #eef3f9;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+.refresh-button {
+  padding: 0.5rem 1.25rem;
+  background-color: #004080;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: 500;
+}
+.refresh-button:hover {
+  background-color: #0055aa;
+}
+.no-devices {
+  color: #999;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #e0e0e0;
+  border-top: 6px solid #004080;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+.loading-text {
+  font-size: 1rem;
+  color: #004080;
+  font-weight: 500;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

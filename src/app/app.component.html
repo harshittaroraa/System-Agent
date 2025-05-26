@@ -1,13 +1,23 @@
-<div class="container">
-  <h1>Device MAC Address</h1>
-  <div *ngIf="loading" class="status loading">Loading...</div>
-
-  <div *ngIf="!loading" class="status success">
-    <ul *ngIf="devices.length > 0">
-      <li *ngFor="let device of devices">
-        {{ device.name }} ({{ device.mac }})
-      </li>
-    </ul>
-     <button (click)="getMacAddress()">Refresh</button>
-  </div>
+<div class="app-container">
+  <header class="app-header">
+    <h1>3CLogic Device MAC Address Viewer</h1>
+  </header>
+  <main class="content">
+    <section class="status-section">
+      <div *ngIf="loading" class="spinner-container">
+        <div class="spinner"></div>
+        <div class="loading-text">Fetching MAC addresses...</div>
+      </div>
+      <div *ngIf="!loading" class="status success">
+        <ul *ngIf="devices.length > 0" class="device-list">
+          <li *ngFor="let device of devices" class="device-item">
+            <span class="device-name">{{ device.name }}</span>
+            <span class="device-mac">{{ device.mac }}</span>
+          </li>
+        </ul>
+        <div *ngIf="devices.length === 0" class="no-devices">No devices found.</div>
+        <button (click)="getMacAddress()" class="refresh-button">Refresh</button>
+      </div>
+    </section>
+  </main>
 </div>
